@@ -6,21 +6,35 @@ h1 {
     text-align: center;
 }
 
+body { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+button { 
+    border-radius: 15px;
+    font-size: 30px;
+    color: rgb(red, green, blue)
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    padding: 15px;
-    width: 400px;
-    align-self: center;
-    background-color: rgb(221, 126, 9);
-    
+    padding: 5px; 
+    width: 600px;
+    height: 600px;
+    background-color: rgb(0, 0, 0);
+    margin: 50px;
 }
 
 
 .gridlayout { 
-    flex: 1 1 30%;
+    flex: 1 1 8%;
     padding: 10px;
-    background-color: green;
+    background-color: white;
     text-align: center;
     border: 1px solid black;
 }
