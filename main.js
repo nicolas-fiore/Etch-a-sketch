@@ -1,8 +1,6 @@
 const container = document.querySelector(".container");
 const reszie = document.querySelector("#resize");
-const gridRemove = document.querySelector("#gridRemove"); 
-
-//make button do stuff and make divs be created withing JS
+const clear = document.querySelector("#clear"); 
 
 function getRandomColor() { 
     let red = Math.floor(Math.random() * 256)
@@ -23,6 +21,7 @@ function gridSize(size) {
         gridLayoutCreate.style.padding = `${Math.max(1, 10 - size/3)}px`;
         
         gridLayoutCreate.addEventListener("mouseenter", () => {
+            gridLayoutCreate.style.transition ="background-color 0.50s ease"
             gridLayoutCreate.style.backgroundColor = getRandomColor(); 
             
         }); 
@@ -30,21 +29,29 @@ function gridSize(size) {
     }; 
 };
 
-function getGridSize() { 
-   
-    
-}
+
 function getGridSize () { 
     reszie.addEventListener("click", () => {
         const resizeGrid = prompt("Enter a number less than 100"); 
-        if (resizeGrid != null) { 
-            console.log("16"); 
-        } else { 
-            console.log("hi"); 
+        if(resizeGrid === null || resizeGrid === "") {
+            gridsize(16); 
+        } else if (resizeGrid > 100 || resizeGrid <= 0) { 
+            resizeGrid = alert("The number you entered was above 100 or below 0, Please try again"); 
+        } else {
+            container.innerHTML = ""; 
+            gridSize(resizeGrid); 
+            
         }
     }); 
 } 
 
+clear.addEventListener("click", () => {
+    const squares = document.querySelectorAll(".gridlayout"); 
+    squares.forEach(grid => {
+        grid.style.backgroundColor = "white"; 
+    });
+   
 
-
-gridSize(getGridSize); 
+})
+gridSize(16); 
+getGridSize(); 
